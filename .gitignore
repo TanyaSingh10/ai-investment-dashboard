@@ -6,3 +6,8 @@ venv/
 dist/
 build/
 .DS_Store
+
+backend/instance/
+data/
+*.log
+backend/test_openai.py
