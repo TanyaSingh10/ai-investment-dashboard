@@ -23,3 +23,5 @@ services:
       - backend
     environment:
       - VITE_API_URL=http://localhost:5001
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
