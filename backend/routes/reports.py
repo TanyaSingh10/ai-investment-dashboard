@@ -8,7 +8,7 @@ reports_bp = Blueprint('reports', __name__)
 @token_required
 def get_reports():
     # Enforce multi-tenancy by filtering with org_id
-    reports = Report.query.filter_by(org_id=g.org_id).order_by(Report.created_at.desc()).all()
+    reports = db.session.query(Report).filter_by(org_id=g.org_id).order_by(Report.created_at.desc()).all()
     
     result = []
     for r in reports:
@@ -49,7 +49,7 @@ def create_report():
 @reports_bp.route('/<report_id>', methods=['DELETE'])
 @token_required
 def delete_report(report_id):
-    report = Report.query.filter_by(id=report_id, org_id=g.org_id).first()
+    report = db.session.query(Report).filter_by(id=report_id, org_id=g.org_id).first()
     
     if not report:
         return jsonify({'message': 'Report not found or access denied'}), 404
