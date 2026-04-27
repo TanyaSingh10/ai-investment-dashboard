@@ -87,7 +87,7 @@ Flask API → `/metrics` → Prometheus → Grafana Dashboard
 
 ### AI & Data
 
-* OpenAI API (tool calling)
+* GROQ API (tool calling)
 * yfinance
 
 ### DevOps / Monitoring
